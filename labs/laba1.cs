@@ -215,6 +215,19 @@ namespace Courses
 
             static public void ShowWholeDictionary()
             {
+                //for (int i = 0; i < arr.Count; i++)
+                //{
+                //    if (arr.ContainsKey(i))
+                //    {
+                //        Console.WriteLine(i + ":");
+                //        Console.WriteLine(arr[i].Showshort());
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine($"Запись с индексом {i} - удалена");
+                //    }
+                //}
+
                 foreach (KeyValuePair<int, Record> keyValue in arr)
                 {
                     Console.WriteLine(keyValue.Key + ":");
