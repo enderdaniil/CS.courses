@@ -115,6 +115,7 @@ namespace Courses
         {
             static public Dictionary<int, Record> arr = new Dictionary<int, Record>();
             static int currentKey = 0;
+            static List<int> existingKeys = new List<int>();
 
             static public void AddNewRecord()
             {
@@ -202,6 +203,7 @@ namespace Courses
                     Console.WriteLine();
                 }
 
+                existingKeys.Add(currentKey);
                 arr.Add(currentKey++, newRecord);
             }
 
@@ -211,28 +213,22 @@ namespace Courses
                 int a = int.Parse(Console.ReadLine());
                 arr.Remove(a);
                 Console.WriteLine();
+                existingKeys.Remove(a);
             }
 
             static public void ShowWholeDictionary()
             {
-                //for (int i = 0; i < arr.Count; i++)
-                //{
-                //    if (arr.ContainsKey(i))
-                //    {
-                //        Console.WriteLine(i + ":");
-                //        Console.WriteLine(arr[i].Showshort());
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine($"Запись с индексом {i} - удалена");
-                //    }
-                //}
-
-                foreach (KeyValuePair<int, Record> keyValue in arr)
+                for (int i = 0; i < existingKeys.Count; i++)
                 {
-                    Console.WriteLine(keyValue.Key + ":");
-                    Console.WriteLine(keyValue.Value.Showshort());
+                    Console.WriteLine(existingKeys[i] + ":");
+                    Console.WriteLine(arr[existingKeys[i]].Showshort());
                 }
+
+                //foreach (KeyValuePair<int, Record> keyValue in arr)
+                //{
+                //    Console.WriteLine(keyValue.Key + ":");
+                //    Console.WriteLine(keyValue.Value.Showshort());
+                //}
             }
 
             static public void ShowOneRecord()
